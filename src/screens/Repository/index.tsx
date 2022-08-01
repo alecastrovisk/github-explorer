@@ -38,13 +38,14 @@ export function Repository() {
 
   function handleIssueNavigation(issueUrl: string) {
     // TODO - use Linking to open issueUrl in a browser
+    Linking.openURL(issueUrl);
   }
 
   return (
     <Background>
       <Container>
         <RepoInfo>
-          {/* <OwnerAvatar source={{ uri:  }} /> */}
+          {/* <OwnerAvatar source={{ uri:   }} /> */}
 
           <TextGroup>
             <TitleAnimation>
@@ -93,6 +94,7 @@ export function Repository() {
                 title: issue.title,
                 subTitle: issue.user.login,
               }}
+              onPress={() => handleIssueNavigation(issue.html_url)}
               // TODO - onPress prop calling 
             />
           )}
